@@ -1,7 +1,7 @@
 import { getAsArray } from "@mindful-web/object-path";
 import defaultValue from "@mindful-web/marko-core/utils/default-value";
 import queryFragment from "@pmmi-media-group/package-common/graphql/fragments/content-list";
-import { getContentUrl } from "@pmmi-media-group/package-common/utils/content-url";
+import { getContentUrl, decorateContentUrl } from "@pmmi-media-group/package-common/utils/content-url";
 
 $ const { newsletter, date, content } = input;
 
@@ -44,7 +44,7 @@ $ const imgStyles = {
                           <table border="0" cellpadding="0" cellspacing="0" width="100%" align="left">
                             <tr>
                               <td style="padding-right:16px;" class="mobilepadding-rt" valign="top">
-                                $ const contentUrl = getContentUrl(content);
+                                $ const contentUrl = getContentUrl(content, out.global.newsletterDate);
                                 <marko-core-obj-value|{ value: image }| obj=content field="primaryImage" as="object">
                                   <marko-newsletter-imgix
                                     src=image.src
@@ -74,7 +74,7 @@ $ const imgStyles = {
                                   </tr>
                                   <tr>
                                     <td style="padding: 0 0 8px 0; color: #3c3c3c; font-family: Helvetica, Arial, sans-serif; font-size: 20px; font-weight: bold; line-height: 30px;letter-spacing:.13px;" align="left" class="mobileheader">
-                                      <a href=content.siteContext.url target="_blank" style="color: #3c3c3c; text-decoration: none;">
+                                      <a href=decorateContentUrl(content.siteContext.url, out.global.newsletterDate) target="_blank" style="color: #3c3c3c; text-decoration: none;">
                                         $!{content.name}
                                       </a>
                                     </td>

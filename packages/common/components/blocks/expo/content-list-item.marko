@@ -1,12 +1,12 @@
 import { getAsArray } from "@mindful-web/object-path";
 import defaultValue from "@mindful-web/marko-core/utils/default-value";
-import { getContentUrl, getContentSectionName } from "@pmmi-media-group/package-common/utils/content-url";
+import { getContentUrl, getContentSectionName, decorateContentUrl } from "@pmmi-media-group/package-common/utils/content-url";
 
 $ const { newsletter, date, content, sectionName } = input;
 
 $ const withImage = defaultValue(input.withImage, false);
 $ const contentPrimarySectionName = getContentSectionName(content);
-$ const contentUrl = getContentUrl(content);
+$ const contentUrl = getContentUrl(content, out.global.newsletterDate);
 
 $ const imgStyles = {
   "font-family": "Helvetica, Arial, sans-serif",
@@ -60,7 +60,7 @@ $ const imgStyles = {
                         </tr>
                         <tr>
                           <td style="padding: 0 0 5px 0; color: #3a3636; font-family: Helvetica, Arial, sans-serif; font-size: 18px; font-weight: bold; line-height: 24px;">
-                            <a href=content.siteContext.url target="_blank" style="color: #3a3636; text-decoration: none;">
+                            <a href=decorateContentUrl(content.siteContext.url, out.global.newsletterDate) target="_blank" style="color: #3a3636; text-decoration: none;">
                               ${content.name}
                             </a>
                           </td>

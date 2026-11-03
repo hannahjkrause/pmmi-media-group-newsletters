@@ -41,7 +41,7 @@ $ const queryParams = {
               </td>
             </tr>
             <for|content| of=nodes>
-              $ const contentUrl = getContentUrl(content);
+              $ const contentUrl = getContentUrl(content, out.global.newsletterDate);
               <tr>
                 <td align="center" valign="top" width="100%" style="padding-bottom:24px;">
                   <!-- Two column -->

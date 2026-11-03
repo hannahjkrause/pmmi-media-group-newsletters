@@ -33,7 +33,7 @@ $ const queryParams = {
                     <marko-web-query|{ nodes }| name="newsletter-scheduled-content" collapsible=false params=queryParams>
                       <if(nodes.length)>
                         $ const content = nodes[0];
-                        $ const contentUrl = getContentUrl(content);
+                        $ const contentUrl = getContentUrl(content, out.global.newsletterDate);
                         <tr>
                           <td style="padding: 16px 0; color: #000000; font-family: Helvetica, Arial, sans-serif; font-size: 18px; font-weight: bold; line-height: 24px;" align="left">
                             <a href=contentUrl target="_blank" style="text-decoration: none; color: #000000;">
@@ -65,7 +65,7 @@ $ const queryParams = {
                     <marko-web-query|{ nodes }| name="newsletter-scheduled-content" collapsible=false params=secondQueryParams>
                       <if(nodes.length)>
                         $ const content = nodes[0];
-                        $ const contentUrl = getContentUrl(content);
+                        $ const contentUrl = getContentUrl(content, out.global.newsletterDate);
                         <tr>
                           <td style="padding: 16px 0; color: #000000; font-family: Helvetica, Arial, sans-serif; font-size: 18px; font-weight: bold; line-height: 24px;" align="left">
                             <a href=contentUrl target="_blank" style="text-decoration: none; color: #000000;">

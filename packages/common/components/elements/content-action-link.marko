@@ -29,7 +29,7 @@ $ const linkAttrs = {
   ...(getAsObject(input, "link.attrs")),
 };
 
-$ const contentUrl = getContentUrl(content);
+$ const contentUrl = getContentUrl(content, out.global.newsletterDate);
 
 <a href=contentUrl style=actionStyle class="text-link" target="_blank" ...linkAttrs>
   ${i18n(contentAction)}

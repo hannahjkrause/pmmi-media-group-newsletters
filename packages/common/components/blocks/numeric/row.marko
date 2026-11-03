@@ -27,7 +27,7 @@ $ const imgStyles = {
 <marko-web-query|{ nodes }| name="newsletter-scheduled-content" collapsible=false params=queryParams>
   <if(nodes.length)>
     $ const content = nodes[0];
-    $ const contentUrl = getContentUrl(content);
+    $ const contentUrl = getContentUrl(content, out.global.newsletterDate);
     <tr>
       <td align="left" bgcolor="#ffffff" style="padding:30px;margin:0;background-color:#ffffff">
         <!--[if mso]>

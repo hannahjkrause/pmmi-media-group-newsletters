@@ -8,7 +8,7 @@ $ const contentTypeActions = {
 };
 $ const contentAction = contentTypeActions[content.type] || contentTypeActions.default;
 
-$ const contentUrl = getContentUrl(content);
+$ const contentUrl = getContentUrl(content, out.global.newsletterDate);
 
 <table class="es-content" cellspacing="0" cellpadding="0" align="center" role="none" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;table-layout:fixed !important;width:100%">
   <tr>

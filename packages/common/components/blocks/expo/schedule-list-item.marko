@@ -1,6 +1,7 @@
 import { get, getAsArray } from "@mindful-web/object-path";
 import defaultValue from "@mindful-web/marko-core/utils/default-value";
 import queryFragment from "@pmmi-media-group/package-common/graphql/fragments/content-list";
+import { decorateContentUrl } from "@pmmi-media-group/package-common/utils/content-url";
 
 $ const { newsletter, date, content, sectionName } = input;
 
@@ -22,7 +23,7 @@ $ const { newsletter, date, content, sectionName } = input;
                   </tr>
                   <tr>
                     <td style="padding: 0 0 12px 0; color: #3a3636; font-family: Helvetica, Arial, sans-serif; font-size: 18px; font-weight: bold; line-height: 24px;">
-                      <a href=content.siteContext.url target="_blank" style="color: #3a3636; text-decoration: none;">
+                      <a href=decorateContentUrl(content.siteContext.url, out.global.newsletterDate) target="_blank" style="color: #3a3636; text-decoration: none;">
                         $!{content.name}
                       </a>
                     </td>

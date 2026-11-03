@@ -12,7 +12,7 @@ $ const button = defaultValue(input.button, false);
 $ const companyPromo = (content.type === 'promotion' && content.company);
 $ const contentPrimarySectionName = getContentSectionName(content);
 $ const slug = companyPromo ? `Presented by ${content.company.name}` : contentPrimarySectionName;
-$ const contentUrl = getContentUrl(content);
+$ const contentUrl = getContentUrl(content, out.global.newsletterDate);
 
 $ const imgStyles = {
   "display": "block",
